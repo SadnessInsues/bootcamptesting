@@ -1,5 +1,6 @@
 #!/bin/bash -e
 mkdir /trash
+cd /trash
 apt-get update
 apt-get install nginx-full -y
 apt-get install ufw -y
