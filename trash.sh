@@ -1,5 +1,5 @@
 #!/bin/bash -e
-mkdir /home/accenturecloudbootcamp2019/
+mkdir /trash
 apt-get update
 apt-get install nginx-full -y
 apt-get install ufw -y
@@ -62,10 +62,10 @@ perl -pi -e "s/database_name_here/wp/g" wp-config.php
 perl -pi -e "s/username_here/user/g" wp-config.php
 perl -pi -e "s/password_here/b3stp4ssw0rd/g" wp-config.php
 systemctl stop nginx
-rsync -av /home/accenturecloudbootcamp2019/* /var/www/html/
-rm -rf /home/accenturecloudbootcamp2019/default
+rsync -av /trash/* /var/www/html/
+rm -rf /trash/default
 rm -rf /etc/nginx/sites-enabled/default
-cat >> /home/accenturecloudbootcamp2019/default << EOF
+cat >> /trash/default << EOF
 server {
  listen 80 default_server;
  listen [::]:80 default_server;
@@ -120,7 +120,7 @@ server {
 EOF
 
 
-cp /home/accenturecloudbootcamp2019/default /etc/nginx/sites-enabled/default
+cp /trash/default /etc/nginx/sites-enabled/default
 cd /etc/php/7.0/fpm/
 perl -pi -e "s/cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" php.ini
 systemctl start nginx
