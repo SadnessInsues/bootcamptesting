@@ -1,4 +1,5 @@
 #!/bin/bash -e
+mkdir /home/accenturecloudbootcamp2019/
 apt-get update
 apt-get install nginx-full -y
 apt-get install ufw -y
